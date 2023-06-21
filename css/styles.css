@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: rubik;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: url("images/v915-wit-011.jpg");
+}
+
+#pagebckground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.grid-container {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  overflow: hidden;
+}
+
+#profile-container {
+  height: inherit;
+  align-items: start;
+  display: flex;
+}
+
+#nav {
+  position: relative;
+  background-color: rgb(245, 245, 240);
+  margin-right: 20px;
+  transform: translateX(0px);
+  height: 100%;
+  width: 200px;
+  max-width: 200px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Add box shadow to the right border */
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  transition: width 0.3s ease;
+}
+
+#closenavdiv {
+  justify-content: end;
+  display: flex;
+}
+
+#closenav {
+  transition: 0.3s ease;
+  position: relative;
+  margin:1px 6px;
+  width: 15px; /* Adjust the width and height as needed */
+  height: 15px;
+  border: none;
+  background: url("images/left-arrow.png");
+  cursor: pointer;
+  z-index: 1;
+  overflow: visible;
+}
+
+#closenav #closenavimg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.5s ease-out;
+}
+
+#nav ul {
+  position: static;
+  list-style: none;
+  overflow: hidden;
+}
+
+#nav ul li {
+  padding: 15px 20px;
+  transition: 0.4s;
+  border-radius: 15px;
+  border: 3px solid rgb(245, 245, 240);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+#nav ul li:hover {
+  padding: 15px 30px;
+}
+
+#nav #li-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 30px 0;
+  padding: 30px 0;
+  border: none;
+  box-shadow: none;
+}
+
+#nav a {
+  text-decoration: none;
+  color: black;
+}
+
+#nav a::after {
+  text-decoration: none;
+}
+
+#navimg {
+  width: 50px;
+  height: 50px;
+  margin: 20px 30px;
+  transition: ease-in-out 0.4s;
+  overflow: hidden;
+}
+
+#navimg:hover {
+  width: 60px;
+  height: 60px;
+  margin: 20px 30px;
+}
+
+#navimg-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#current-picture {
+  border-radius: 200px;
+  width: 150px;
+  height: 150px;
+  margin: 30px;
+}
+
+#change-pict {
+  border: none;
+  background-color: beige;
+  height: 30px;
+  margin: 15px;
+  width: 13%;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+#change-pict:hover {
+  background-color: rgb(0, 0, 26);
+  color: beige;
+}
+
+.details {
+  position: relative;
+  margin: 5px 0px;
+  align-items: center;
+  display: flex;
+  justify-content: start;
+  text-align: left;
+  overflow: hidden;
+}
+
+.grid {
+  margin-right: 20px;
+  top: 15px;
+  max-width: 800px;
+  height: 90%;
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: auto;
+  padding: 30px 10px;
+  background-color: rgb(245, 245, 240);
+  border-radius: 30px;
+  grid-template-areas:
+    "details1 details1"
+    "username1 username2"
+    "fullname1 fullname2"
+    "major1 major2"
+    "enrolmentdate1 enrolmentdate2"
+    "email1 email2"
+    "dob1 dob2"
+    "address1 address2"
+    "phonenumber1 phonenumber2";
+  overflow: display;
+}
+#details1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: details1;
+  grid-column: 1/15;
+}
+
+#username-1 {
+  grid-area: username1;
+  grid-column: 6/8;
+}
+#username-2 {
+  grid-area: username2;
+  grid-column: 9/14;
+}
+#fullname-1 {
+  grid-area: fullname1;
+  grid-column: 6/8;
+}
+#fullname-2 {
+  grid-area: fullname2;
+  grid-column: 9/14;
+}
+#major-1 {
+  grid-area: major1;
+  grid-column: 6/8;
+}
+#major-2 {
+  grid-area: major2;
+  grid-column: 9/14;
+}
+#enrolmentdate-1 {
+  grid-area: enrolmentdate1;
+  grid-column: 6/8;
+}
+#enrolmentdate-2 {
+  grid-area: enrolmentdate2;
+  grid-column: 9/14;
+}
+#email-1 {
+  grid-area: email1;
+  grid-column: 6/8;
+}
+#email-2 {
+  grid-area: email2;
+  grid-column: 9/14;
+}
+#dob-1 {
+  grid-area: dob1;
+  grid-column: 6/8;
+}
+#dob-2 {
+  grid-area: dob2;
+  grid-column: 9/14;
+}
+#address-1 {
+  grid-area: address1;
+  grid-column: 6/8;
+}
+#address-2 {
+  grid-area: address2;
+  grid-column: 9/14;
+}
+#phonenumber-1 {
+  grid-area: phonenumber1;
+  grid-column: 6/8;
+}
+#phonenumber-2 {
+  grid-area: phonenumber2;
+  grid-column: 9/14;
+}
+/* below is styles for courseview.php */
+
+.table.container{
+    top: 15px;
+    width :80%;
+    height: 90%;
+    position: relative;
+    padding: 30px;
+    background-color: rgb(245, 245, 240);
+    border-radius: 30px;
+}
+.table.container h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.table.container th,td{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.courseviewtable{
+    width:-webkit-fill-available;
+    position: relative;
+    border: 1px solid rgb(36, 36, 32);
+}
+
+.detail{
+  margin:30px 0;
+}
+.detail.instructor , .detail.register{
+  padding:20px;
+  margin:30px 0;
+  background-color: rgb(68, 68, 60);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 40px;
+  display:flex;
+}
+.instructor.alias{
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: rgb(255, 255, 255);
+}
+
+.instructor.alias h3{
+  text-align: center;
+}
+
+
+.detail.instructor img{
+  width:120px;
+  height: 120px;
+  margin:30px;
+}
