@@ -18,7 +18,7 @@
         <div class="grid-container">
             <div class="grid">
                 <!-- add profilegrid.php to profilestudent.php -->
-                <?php include 'profilegrid.php'; ?>
+                <?php include 'profile_grid.php'; ?>
             </div>
         </div>
     </div>

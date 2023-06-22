@@ -17,7 +17,7 @@ include 'config/connect.php';
         <?php include 'nav.php'; ?>
         <div class="grid-container">
             <div class="table container">
-            <?php include 'coursedetailcontent.php'; ?>
+            <?php include 'coursedetail_content.php'; ?>
             </div>
         </div>
     </div>
