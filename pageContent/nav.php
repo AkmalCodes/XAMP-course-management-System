@@ -10,7 +10,7 @@
         <button id="closenav" cursor="pointer"><img id="closenavimg" src='images/left-arrow.png'></button>
     </div>
     <ul id="list"> 
-        <li id="li-img" >
+        <li class="" id="li-img" >
             <img id="navimg" src="images/profile.png" >
             <h3><a href="profilepage.php"><?php echo $_SESSION['user_name'] ?></a></h3>
         </li>

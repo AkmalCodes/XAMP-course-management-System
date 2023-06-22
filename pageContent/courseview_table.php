@@ -35,7 +35,7 @@ $user_type = $_SESSION['user_type'];
                         $rowtemp = mysqli_fetch_array($resulttemp);
                         $student_id = $rowtemp['student_id'];
 
-                        $sqltemp = "SELECT * FROM `enrollment` WHERE student_id = '$student_id'";
+                        $sqltemp = "SELECT * FROM `enrollment` WHERE student_id = '$student_id' AND course_id = '$course_id'";
                         $resulttemp = mysqli_query($con, $sqltemp);
                         if (mysqli_num_rows($resulttemp) === 1) {
                             $enrolled = 'enrolled';
