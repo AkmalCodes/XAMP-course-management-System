@@ -1,5 +1,6 @@
 <?php
-
+$user_id = $_SESSION['user_id'];
+$user_type = $_SESSION['user_type'];
 if (isset($_POST['enroll'])) {
     $sql = "SELECT * FROM `student` WHERE user_id = '$user_id'";
     $result = mysqli_query($con, $sql);
@@ -14,15 +15,24 @@ if (isset($_POST['enroll'])) {
         header("location: coursedetail.php?course_id=$course_id");
         exit();
     } else { // if it exists display error
-        header("location: coursedetail.php?course_id=$course_id&error= you have alread enrolled in this course");
+        header("location: coursedetail.php?course_id=$course_id&error= Already Enrolled!");
         exit();
     }
 }
 ?>
 
-<form method="post">
-    <input type="submit" name="enroll" value="Enroll"></input>
+<?php
+
+if ($user_type === 'student') {
+    echo "<form class='enroll' method='post'>
+    <h4>Enroll for this Course! </h4>
+    <input id='enroll' type='submit' name='enroll' value='Enroll'></input>";
+?>
+
     <?php if (isset($_GET['error'])) { ?>
-        <p class="error"><?php echo $_GET['error']; ?></p>
+        <p class="error"><?php echo $_GET['error']  ?></p>
     <?php } ?>
-</form>
+<?php
+    echo "</form>";
+}
+?>

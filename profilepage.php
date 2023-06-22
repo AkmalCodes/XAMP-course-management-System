@@ -11,14 +11,13 @@
 </head>
 
 <body>
-    <img id="pagebckground" src="images/v915-wit-011.jpg">
     <div id="profile-container">
         <!-- add profilenav.php to profilestudent.php -->
-        <?php include 'nav.php'; ?>
+        <?php include 'pageContent/nav.php'; ?>
         <div class="grid-container">
             <div class="grid">
                 <!-- add profilegrid.php to profilestudent.php -->
-                <?php include 'profile_grid.php'; ?>
+                <?php include 'pageContent/profile_grid.php'; ?>
             </div>
         </div>
     </div>

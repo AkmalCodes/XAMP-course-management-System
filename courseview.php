@@ -12,12 +12,11 @@
 </head>
 
 <body>
-    <img id="pagebckground" src="images/v915-wit-011.jpg">
     <div id="profile-container">
-        <?php include 'nav.php'; ?>
+        <?php include 'pageContent/nav.php'; ?>
         <div class="grid-container">
             <div class="table container">
-                <?php include 'courseviewtable.php'; ?>
+                <?php include 'pageContent/courseview_table.php'; ?>
             </div>
         </div>
     </div>

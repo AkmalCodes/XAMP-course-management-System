@@ -12,7 +12,7 @@ $address = '';
 $success_message = '';
 
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) { // no error checking yet
   $username = mysqli_real_escape_string($con, $_POST['username']);
   $password = mysqli_real_escape_string($con, $_POST['password']);
   $email = mysqli_real_escape_string($con, $_POST['email']);
@@ -35,10 +35,7 @@ if (isset($_POST['submit'])) {
     echo $success_message;
 
     //reset variable to null
-    $username = '';
-    $email = '';
-    $first_name = '';
-    $last_name = '';
+
     header("Location: ../loginpage.php");
     exit();
   } else {

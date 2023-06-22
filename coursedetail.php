@@ -12,17 +12,14 @@ include 'config/connect.php';
 </head>
 
 <body>
-    <img id="pagebckground" src="images/v915-wit-011.jpg">
     <div id="profile-container">
-        <?php include 'nav.php'; ?>
+        <?php include 'pageContent/nav.php'; ?>
         <div class="grid-container">
             <div class="table container">
-            <?php include 'coursedetail_content.php'; ?>
+            <?php include 'pageContent/coursedetail_content.php'; ?>
             </div>
         </div>
     </div>
-
-
 </body>
 
 </html>
