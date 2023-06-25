@@ -17,7 +17,8 @@ $user_type = $_SESSION['user_type'];
                 <th scope="col">Certificates</th>
                 <?php
                 if ($user_type === 'student') {
-                    echo "<th scope='col'>Enrolled</th>
+                    echo "<th scope='col'>Completion</th>
+                          <th scope='col'>Enrolled</th>
                     </tr>";
                 } else echo "</tr>";
                 ?>
@@ -42,6 +43,15 @@ $user_type = $_SESSION['user_type'];
                         } else {
                             $enrolled = 'not enrolled';
                         }
+
+                        $sqltemp = "SELECT * FROM `certificate` WHERE student_id = '$student_id' AND course_id = '$course_id'";
+                        $resulttemp = mysqli_query($con, $sqltemp);
+                        $rowtemp = mysqli_fetch_array($resulttemp);
+                        if (mysqli_num_rows($resulttemp) === 1) {
+                            $completion = $rowtemp['completion'];;
+                        } else {
+                            $completion = 'N/A';
+                        }
                     }
 
                     echo "<tr>
@@ -50,7 +60,8 @@ $user_type = $_SESSION['user_type'];
                             <td><a href='coursedetail.php?course_id=$course_id'>more details</a></td>
                             <td><a href='#'>certificate</a></td>";
                     if ($user_type === 'student') {
-                        echo "<td> $enrolled </td>
+                        echo "<td> $completion </td>
+                              <td> $enrolled </td>
                                       </tr>";
                     } else echo "</tr>";
                 }

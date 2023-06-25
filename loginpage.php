@@ -15,9 +15,6 @@
         <h1>Training Provider Management System</h1>
             <fieldset>
                 <form method="post" action="utils/login.php">
-                    <legend style="width: 85%;">
-                        Login
-                    </legend>
                     <?php if(isset($_GET['error'])) { ?>
                         <p class = "error"><?php echo $_GET['error'];?></p>
                     <?php } ?>

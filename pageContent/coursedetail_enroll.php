@@ -12,6 +12,8 @@ if (isset($_POST['enroll'])) {
     if (mysqli_num_rows($result) === 0) { // check if dosent exist
         $insertsql = "INSERT INTO `enrollment` (student_id,course_id) VALUES ('$student_id', '$course_id')";
         mysqli_query($con, $insertsql);
+        $insertsql = "INSERT INTO `certificate` (student_id,course_id) VALUES ('$student_id', '$course_id')";
+        mysqli_query($con, $insertsql);
         header("location: coursedetail.php?course_id=$course_id");
         exit();
     } else { // if it exists display error

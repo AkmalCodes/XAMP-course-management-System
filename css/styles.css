@@ -1,17 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo Narrow');
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Archivo Narrow';
 }
 
 html,
 body {
-  font-family: rubik;
+
   position: relative;
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #eeeedf;
+  background-color: #bab76c42;
 }
 
 #pagebckground {
@@ -36,13 +38,13 @@ body {
 
 #nav {
   position: relative;
-  background-color: #dfdfc1;
+  background-color: #bab86ca1;
   margin-right: 20px;
   transform: translateX(0px);
   height: 100%;
   width: 200px;
   max-width: 200px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Add box shadow to the right border */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6); /* Add box shadow to the right border */
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   transition: width 0.3s ease;
@@ -57,19 +59,22 @@ body {
   transition: 0.3s ease;
   position: relative;
   margin: 1px 6px;
+  right: -30px;
+  top:10px;
   width: 15px; /* Adjust the width and height as needed */
   height: 15px;
   border: none;
-  background: url("images/left-arrow.png");
   cursor: pointer;
   z-index: 1;
   overflow: visible;
+  mix-blend-mode:color-burn; 
 }
 
 #closenav #closenavimg {
   width: 20px;
   height: 20px;
   transition: transform 0.5s ease-out;
+
 }
 
 #nav ul {
@@ -78,20 +83,16 @@ body {
   overflow: hidden;
 }
 
-#nav ul li {
+#nav ul .list {
   padding: 15px 20px;
   transition: 0.4s ease-in-out;
   border-radius: 15px;
-  border: 3px solid #dfdfc1d2;
+  border: 3px solid #bab76c00;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 }
 
-#nav ul li:hover {
+#nav ul .list:hover {
   padding: 15px 30px;
-}
-
-#nav ul li:hover a {
-  color: #5f5f49;
 }
 
 #nav #li-img {
@@ -172,17 +173,19 @@ body {
 }
 
 .grid {
+  font-size: 22px;
   margin-right: 20px;
   top: 15px;
-  max-width: 800px;
+  width: 80%;
   height: 90%;
   display: grid;
   position: relative;
   grid-template-columns: repeat(14, 1fr);
   grid-template-rows: auto;
   padding: 30px 10px;
-  background-color: #dfdfc1;
+  background-color: #bab86ca1;
   border-radius: 30px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
   grid-template-areas:
     "details1 details1"
     "username1 username2"
@@ -194,7 +197,6 @@ body {
     "dyanmic1 dyanmic1"
     "dyanmic2 dyanmic2"
     "dyanmic3 dyanmic3";
-  overflow: display;
 }
 #details1 {
   display: flex;
@@ -285,9 +287,9 @@ body {
   height: 90%;
   position: relative;
   padding: 30px;
-  background-color: #dfdfc1;
+  background-color: #bab86ca1;
   border-radius: 30px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
 }
 .table.container h1 {
   text-align: left;
@@ -302,12 +304,16 @@ td {
 
 .courseviewtable {
   width: -webkit-fill-available;
+  background-color: #ffffff;
   position: relative;
   border: 1px solid rgb(36, 36, 32);
   border-radius: 5px;
 }
 .detail {
   margin: 30px 0;
+}
+.detail.description{
+  text-align:justify ;
 }
 .detail.instructor {
   width: -webkit-fill-available;
@@ -344,7 +350,7 @@ td {
   height: 70%;
   position: relative;
   padding: 30px;
-  background-color: #dfdfc1;
+  background-color: #bab86ca1;
   border-radius: 30px;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
 }
@@ -386,4 +392,18 @@ td {
 }
 .instructor.tablewrapper{
   width: -webkit-fill-available;
+}
+
+.detail.reviews{
+  display:flex ;
+  justify-content: center;
+}
+
+.reviews.instructor,.reviews.course{
+  background-color: aliceblue;
+  border-radius: 20px;
+  margin:10px;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
 }

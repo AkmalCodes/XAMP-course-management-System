@@ -35,10 +35,16 @@ include 'coursedetail_instructor.php'; // gets from table instructor
                 </tbody>
             </table>
             <div>
-            <?php include 'coursedetail_enroll.php'; ?>
+                <?php include 'coursedetail_enroll.php'; ?>
             </div>
-            
         </div>
-        
+    </div>
+</div>
+<div class="detail reviews">
+    <div class="reviews instructor">
+        i review instructor form
+    </div>
+    <div class="reviews course">
+        i review course form
     </div>
 </div>
