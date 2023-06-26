@@ -1,19 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Archivo Narrow');
+@import url("https://fonts.googleapis.com/css?family=Archivo Narrow");
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Archivo Narrow';
+  font-family: "Archivo Narrow";
 }
 
 html,
 body {
-
   position: relative;
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #bab76c42;
+  background-color: #ffffffe7;
 }
 
 #pagebckground {
@@ -60,21 +59,20 @@ body {
   position: relative;
   margin: 1px 6px;
   right: -30px;
-  top:10px;
+  top: 10px;
   width: 15px; /* Adjust the width and height as needed */
   height: 15px;
   border: none;
   cursor: pointer;
   z-index: 1;
   overflow: visible;
-  mix-blend-mode:color-burn; 
+  mix-blend-mode: color-burn;
 }
 
 #closenav #closenavimg {
   width: 20px;
   height: 20px;
   transition: transform 0.5s ease-out;
-
 }
 
 #nav ul {
@@ -312,8 +310,8 @@ td {
 .detail {
   margin: 30px 0;
 }
-.detail.description{
-  text-align:justify ;
+.detail.description {
+  text-align: justify;
 }
 .detail.instructor {
   width: -webkit-fill-available;
@@ -325,7 +323,7 @@ td {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 .instructor.alias {
-  float:left;
+  float: left;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -334,7 +332,7 @@ td {
 
 .instructor.alias h3 {
   position: relative;
-  bottom:5px;
+  bottom: 5px;
   text-align: center;
 }
 
@@ -344,7 +342,7 @@ td {
   margin: 30px;
 }
 
-.instructor.available  {
+.instructor.available {
   margin-left: 10px;
   width: -webkit-fill-available;
   height: 70%;
@@ -377,33 +375,100 @@ td {
   display: flex;
   justify-content: center;
 }
-#enroll{
+#enroll {
   position: relative;
-  bottom:3px;
+  bottom: 3px;
   border: none;
-  margin:0 20px;
-  padding:5px;
+  margin: 0 20px;
+  padding: 5px;
   border-radius: 5px;
   cursor: pointer;
   transition: ease-in-out 0.3s;
 }
-#enroll:hover{
+#enroll:hover {
   background-color: rgb(128, 233, 128);
 }
-.instructor.tablewrapper{
+.instructor.tablewrapper {
   width: -webkit-fill-available;
 }
 
-.detail.reviews{
-  display:flex ;
+.detail.reviews {
+  display: flex;
   justify-content: center;
 }
 
-.reviews.instructor,.reviews.course{
-  background-color: aliceblue;
+.reviews.instructor,
+.reviews.course {
+  background-color: white;
   border-radius: 20px;
-  margin:10px;
+  margin: 10px;
   width: -webkit-fill-available;
   height: -webkit-fill-available;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* below is style for login page */
+
+.login {
+  height: inherit;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #bab86ca1;
+}
+
+.login-container{
+ margin-top: 20px;
+ height:40%;
+ width:40%;
+}
+.login-container form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 1em;
+  height:100%;
+  width: 100%;
+}
+.login-container input{
+  padding:5px 5px;
+  width: -webkit-fill-available;
+  border-radius: 0.25em;
+}
+.login-container h2{
+  text-align: center;
+  margin-bottom:15px;
+}
+.error{
+  color:red;
+  text-align: left;
+}
+
+.username,.password{
+  margin: 20px;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: space-between;
+}
+.username input, .username label,.password input, .password label{
+  margin:0 5px;
+}
+
+#login{
+  border-radius: 1em;
+  border:0.2px solid #bab86ca1;
+  margin:20px;
+  width:60%;
+  font-size: 20px;
+  transition: 0.2s ease-in-out;
+}
+
+#login:hover{
+  background-color: #bab76c;
+  color:white;
 }
