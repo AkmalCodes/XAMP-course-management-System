@@ -1,9 +1,12 @@
 <?php
+$stmt = mysqli_stmt_init($con);
 $sql = 'SELECT * FROM `course`';
-$result = mysqli_query($con, $sql);
+mysqli_stmt_prepare($stmt, $sql);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+
 $user_id = $_SESSION['user_id'];
 $user_type = $_SESSION['user_type'];
-
 ?>
 
 <div table container>
@@ -20,7 +23,9 @@ $user_type = $_SESSION['user_type'];
                     echo "<th scope='col'>Completion</th>
                           <th scope='col'>Enrolled</th>
                     </tr>";
-                } else echo "</tr>";
+                } else {
+                    echo "</tr>";
+                }
                 ?>
         </thead>
         <tbody>
@@ -30,40 +35,58 @@ $user_type = $_SESSION['user_type'];
                     $course_id = $row['course_id'];
                     $course_name = $row['course_name'];
 
-                    if ($user_type === 'student') { // get status on enrollment for students only
-                        $sqltemp = "SELECT * FROM `student` WHERE `user_id` = '$user_id'";
-                        $resulttemp = mysqli_query($con, $sqltemp);
-                        $rowtemp = mysqli_fetch_array($resulttemp);
-                        $student_id = $rowtemp['student_id'];
+                    if ($user_type === 'student') {
+                        // Get status on enrollment for students only
+                        $stmtTemp = mysqli_stmt_init($con);
 
-                        $sqltemp = "SELECT * FROM `enrollment` WHERE student_id = '$student_id' AND course_id = '$course_id'";
-                        $resulttemp = mysqli_query($con, $sqltemp);
-                        if (mysqli_num_rows($resulttemp) === 1) {
+                        $sqlTemp = "SELECT * FROM `student` WHERE `user_id` = ?";
+                        mysqli_stmt_prepare($stmtTemp, $sqlTemp);
+                        mysqli_stmt_bind_param($stmtTemp, "i", $user_id);
+                        mysqli_stmt_execute($stmtTemp);
+                        $resultTemp = mysqli_stmt_get_result($stmtTemp);
+                        $rowTemp = mysqli_fetch_array($resultTemp);
+                        $student_id = $rowTemp['student_id'];
+
+                        $sqlTemp = "SELECT * FROM `enrollment` WHERE student_id = ? AND course_id = ?";
+                        mysqli_stmt_prepare($stmtTemp, $sqlTemp);
+                        mysqli_stmt_bind_param($stmtTemp, "ii", $student_id, $course_id);
+                        mysqli_stmt_execute($stmtTemp);
+                        $resultTemp = mysqli_stmt_get_result($stmtTemp);
+
+                        if (mysqli_num_rows($resultTemp) === 1) {
                             $enrolled = 'enrolled';
                         } else {
                             $enrolled = 'not enrolled';
                         }
 
-                        $sqltemp = "SELECT * FROM `certificate` WHERE student_id = '$student_id' AND course_id = '$course_id'";
-                        $resulttemp = mysqli_query($con, $sqltemp);
-                        $rowtemp = mysqli_fetch_array($resulttemp);
-                        if (mysqli_num_rows($resulttemp) === 1) {
-                            $completion = $rowtemp['completion'];;
+                        $sqlTemp = "SELECT * FROM `certificate` WHERE student_id = ? AND course_id = ?";
+                        mysqli_stmt_prepare($stmtTemp, $sqlTemp);
+                        mysqli_stmt_bind_param($stmtTemp, "ii", $student_id, $course_id);
+                        mysqli_stmt_execute($stmtTemp);
+                        $resultTemp = mysqli_stmt_get_result($stmtTemp);
+                        $rowTemp = mysqli_fetch_array($resultTemp);
+
+                        if (mysqli_num_rows($resultTemp) === 1) {
+                            $completion = $rowTemp['completion'];
                         } else {
                             $completion = 'N/A';
                         }
+
+                        mysqli_stmt_close($stmtTemp);
                     }
 
                     echo "<tr>
-                            <th scope='row'>$course_id </th>
+                            <th scope='row'>$course_id</th>
                             <td>$course_name</td>
                             <td><a href='coursedetail.php?course_id=$course_id'>more details</a></td>
                             <td><a href='#'>certificate</a></td>";
                     if ($user_type === 'student') {
-                        echo "<td> $completion </td>
-                              <td> $enrolled </td>
+                        echo "<td>$completion</td>
+                              <td>$enrolled</td>
                                       </tr>";
-                    } else echo "</tr>";
+                    } else {
+                        echo "</tr>";
+                    }
                 }
             }
             ?>
@@ -71,5 +94,4 @@ $user_type = $_SESSION['user_type'];
     </table>
 
     <style>
-
     </style>

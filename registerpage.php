@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,11 +14,11 @@
     <form method="post" action="utils/register.php">
       <div class="mb-3">
         <h4>your username</h4>
-        <input type="text" class="form-control" placeholder="username" name="username" >
+        <input type="text" class="form-control" placeholder="username" name="username">
       </div>
       <div class="mb-3">
         <h4>your password</h4>
-        <input type="password" class="form-control" placeholder="password" name="password" >
+        <input type="password" class="form-control" placeholder="password" name="password">
       </div>
       <div class="mb-3">
         <h4>your email</h4>
@@ -27,11 +26,11 @@
       </div>
       <div class="mb-3">
         <h4>your first_name</h4>
-        <input type="text" class="form-control" placeholder="first name" name="first_name" >
+        <input type="text" class="form-control" placeholder="first name" name="first_name">
       </div>
       <div class="mb-3">
         <h4>your last_name</h4>
-        <input type="text" class="form-control" placeholder="last name" name="last_name" >
+        <input type="text" class="form-control" placeholder="last name" name="last_name">
       </div>
       <div class="mb-3">
         <h4>Your date of birth</h4>
@@ -43,7 +42,7 @@
       </div>
       <div class="mb-3">
         <h4>your phone_number</h4>
-        <input type="text" class="form-control" placeholder="phone number" name="phone_number" >
+        <input type="text" class="form-control" placeholder="phone number" name="phone_number">
       </div>
       <div class="mb-3">
         <h4>Register as</h4>

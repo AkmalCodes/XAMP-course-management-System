@@ -6,8 +6,8 @@ if (isset($_POST['user_name']) && isset($_POST['password'])) {
 
     function validate($data)
     {
-        $data = trim($data);// removes whitespace on left and right of string
-                            // ltrim() remove on left rtrim() remove on right
+        $data = trim($data); // removes whitespace on left and right of string
+        // ltrim() remove on left rtrim() remove on right
         // $data = stripslashes($data);// removes slashes
         // $data = htmlspecialchars($data);
         return $data;
@@ -23,25 +23,31 @@ if (isset($_POST['user_name']) && isset($_POST['password'])) {
         header("location: ../loginpage.php?error=Password is required");
         exit();
     } else {
-        $sql = "SELECT * FROM users WHERE user_name = '$user_name' AND password = '$password'";
-        $result = mysqli_query($con, $sql);
+        $sql = "SELECT * FROM users WHERE user_name = ? AND password = ?";
+        $stmt = mysqli_stmt_init($con);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            echo "SQL FAILED";
+        } else {
+            mysqli_stmt_bind_param($stmt, "ss", $user_name, $password); // using prepared statements for secure
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
 
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row['user_name'] === $user_name && $row['password'] === $password) {
-                $_SESSION['user_name'] = $row['user_name'];
-                $_SESSION['user_id'] = $row['user_id'];
-                $_SESSION['user_type'] = $row['user_type'];
-                header("Location: ../courseview.php");
-                exit();
+            if (mysqli_num_rows($result) === 1) {
+                $row = mysqli_fetch_assoc($result);
+                if ($row['user_name'] === $user_name && $row['password'] === $password) {
+                    $_SESSION['user_name'] = $row['user_name'];
+                    $_SESSION['user_id'] = $row['user_id'];
+                    $_SESSION['user_type'] = $row['user_type'];
+                    header("Location: ../courseview.php");
+                    exit();
+                } else {
+                    header("Location: ../loginpage.php?error=Incorrect User Name or Password");
+                    exit();
+                }
             } else {
                 header("Location: ../loginpage.php?error=Incorrect User Name or Password");
                 exit();
             }
-        }else {
-            header("Location: ../loginpage.php?error=Incorrect User Name or Password");
-            exit();
         }
-        
     }
-} 
+}
