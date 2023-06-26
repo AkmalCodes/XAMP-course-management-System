@@ -15,7 +15,6 @@ const handleNavCloseOpen = () => {
     // Close the navbar
     navBar.style.width = "0px";
     list.style.width = "0px";
-    closenavimg.style.transform = "rotate(-180deg)";
     closenavimg.style.position = "relative";
     closenavimg.style.backgroundSize = "cover";
   }
@@ -26,7 +25,6 @@ const handleNavCloseOnly = () => {
     // Close the navbar when clicking somewhere else
     navBar.style.width = "0px";
     list.style.width = "0px";
-    closenavimg.style.transform = "rotate(-180deg)";
     closenavimg.style.position = "relative";
     closenavimg.style.backgroundSize = "cover";
   }
@@ -34,7 +32,7 @@ const handleNavCloseOnly = () => {
 
 closenav.addEventListener("click", handleNavCloseOpen);
 
-document.addEventListener("click", (event) => {
+  document.addEventListener("click", (event) => {
   const targetElement = event.target;
   const isClickInsideNav = navBar.contains(targetElement);
 

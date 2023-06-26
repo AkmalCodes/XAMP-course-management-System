@@ -6,7 +6,7 @@ include 'config/session_start.php';
     <script src="js/navbar.js" async></script>
 </head>
 
-<div id="nav" class="navbar">
+<div id="nav" class="navbar" style="width:0px;">
     <div id="closenavdiv">
         <button id="closenav" cursor="pointer"><img id="closenavimg" src='images/menu.png'></button>
     </div>
