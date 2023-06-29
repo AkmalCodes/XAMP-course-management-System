@@ -42,9 +42,9 @@ include 'coursedetail_instructor.php'; // gets from table instructor
 </div>
 <div class="detail reviews">
     <div class="reviews instructor">
-        i review instructor form
+    <?php include 'coursedetail_coursereview.php'; ?>
     </div>
     <div class="reviews course">
-        i review course form
+    <?php include 'coursedetail_instructorreview.php'; ?>
     </div>
 </div>

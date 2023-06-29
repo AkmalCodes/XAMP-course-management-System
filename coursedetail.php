@@ -1,5 +1,6 @@
 <?php
 include 'config/connect.php';
+
 ?>
 
 <!DOCTYPE html>
