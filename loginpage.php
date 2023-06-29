@@ -8,13 +8,11 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body id="loginbody">
     <div class="login">
-
         <div class="login-container">
-
             <form method="post" action="utils/login.php">
-            <h2>Training Provider Management System</h2>
+                <h2>Training Provider Management System</h2>
                 <?php if (isset($_GET['error'])) { ?>
                     <p class="error"><?php echo $_GET['error']; ?></p>
                 <?php } ?>
@@ -29,8 +27,9 @@
                 <input id="login" type="submit" value="Login">
             </form>
         </div>
+        <?php echo "<a href='registerpage.php'>Register</a>"; ?>
     </div>
-    <?php echo "<a href='registerpage.php'>Register</a>"; ?>
+    
 </body>
 
 </html>
