@@ -1,5 +1,5 @@
 <?php
-include 'config/connect.php';
+include 'utils/connect.php';
 include 'pageContent/profile_grid_getdata.php';
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-include '../config/connect.php';
+include 'connect.php';
 $username = '';
 $email = '';
 $password = '';

@@ -1,5 +1,4 @@
 <?php
-include 'config/session_start.php';
 ?>
 
 <head>

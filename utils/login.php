@@ -1,6 +1,6 @@
 <?php
-include '../config/session_start.php';
-include '../config/connect.php';
+include 'session_start.php';
+include 'connect.php';
 
 if (isset($_POST['user_name']) && isset($_POST['password'])) {
 
@@ -22,7 +22,9 @@ if (isset($_POST['user_name']) && isset($_POST['password'])) {
     } elseif (empty($password)) { // checks if input for username is not empty
         header("location: ../loginpage.php?error=Password is required");
         exit();
-    } else {
+    } else $_SESSION['user_name'] = $row['user_name'];
+                    $_SESSION['user_id'] = $row['user_id'];
+                    $_SESSION['user_type'] = $row['user_type'];{
         $sql = "SELECT * FROM users WHERE user_name = ? AND password = ?";
         $stmt = mysqli_stmt_init($con);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -35,9 +37,7 @@ if (isset($_POST['user_name']) && isset($_POST['password'])) {
             if (mysqli_num_rows($result) === 1) {
                 $row = mysqli_fetch_assoc($result);
                 if ($row['user_name'] === $user_name && $row['password'] === $password) {
-                    $_SESSION['user_name'] = $row['user_name'];
-                    $_SESSION['user_id'] = $row['user_id'];
-                    $_SESSION['user_type'] = $row['user_type'];
+                    
                     header("Location: ../courseview.php");
                     exit();
                 } else {

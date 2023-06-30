@@ -1,5 +1,7 @@
 <?php
-    include 'config/connect.php';
+    include 'utils/connect.php';
+    include 'utils/session_start.php';
+    include 'utils/sessionnull.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +10,6 @@
 <head>
     <title>Course view</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/profile.js" async></script>
 </head>
 
 <body>
