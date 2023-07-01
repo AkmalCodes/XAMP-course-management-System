@@ -17,7 +17,17 @@
         <li class="list"><a href="#">HOME</a></li>
         <li class="list"><a href="courseview.php"> COURSES</a></li>
         <li id="profiledropdown" class="list"><a href="profilepage.php"> PROFILE</a></li>
-        <li class="list"><a href="#"> SCHEDULE</a></li>
+
+        <?php if ($_SESSION['user_type'] === 'instructor') {
+            echo "
+            <li class='list'>
+            <a href='courseschedule_instructor.php'> SCHEDULE</a>
+            </li>
+            ";
+        } elseif ($_SESSION['user_type'] === 'student') {
+        }
+        ?>
+
         <li class="list"><a href="utils/logout.php"> LOGOUT</a></li>
     </ul>
 </div>
