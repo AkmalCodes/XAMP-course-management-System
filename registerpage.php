@@ -13,35 +13,35 @@
     <form class="register-form" method="post" action="utils/register.php" onsubmit="return validateForm()">
       <div class="register-username">
         <h4>your username</h4>
-        <input type="text" class="form-control" placeholder="username" name="username">
+        <input id="register-uname" type="text" class="form-control" placeholder="username" name="username">
       </div>
       <div class="register-password">
         <h4>your password</h4>
-        <input type="password" class="form-control" placeholder="password" name="password">
+        <input id="register-uname" type="password" class="form-control" placeholder="password" name="password">
       </div>
       <div class="register-email">
         <h4>your email</h4>
-        <input type="email" class="form-control" placeholder="email" name="email">
+        <input id="register-uname" type="email" class="form-control" placeholder="email" name="email">
       </div>
       <div class="register-fname">
         <h4>your first_name</h4>
-        <input type="text" class="form-control" placeholder="first name" name="first_name">
+        <input id="register-uname" type="text" class="form-control" placeholder="first name" name="first_name">
       </div>
       <div class="register-lname">
         <h4>your last_name</h4>
-        <input type="text" class="form-control" placeholder="last name" name="last_name">
+        <input id="register-uname" type="text" class="form-control" placeholder="last name" name="last_name">
       </div>
       <div class="register-dob">
         <h4>Your date of birth</h4>
-        <input type="date" class="form-control" name="date_of_birth">
+        <input id="register-uname" type="date" class="form-control" name="date_of_birth">
       </div>
       <div class="registe-address">
         <h4>your address</h4>
-        <input type="text" class="form-control" placeholder="address" name="address">
+        <input id="register-uname" type="text" class="form-control" placeholder="address" name="address">
       </div>
       <div class="register-phonenumber">
         <h4>your phone_number</h4>
-        <input type="text" class="form-control" placeholder="phone number" name="phone_number">
+        <input id="register-uname" type="text" class="form-control" placeholder="phone number" name="phone_number">
       </div>
       <div class="register-usertype">
         <h4>Register as</h4>

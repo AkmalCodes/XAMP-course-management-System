@@ -7,11 +7,11 @@ include 'coursedetail_instructor.php'; // gets from table instructor
     <h1><?php echo $course_name ?></h1>
 </div>
 <div class="detail description">
-    <h3><?php echo $course_description ?></h3>
+    <h4><?php echo $course_description ?></h4>
 </div>
 <div class="detail course">
-    <h2>Length of course: <?php echo $course_length  ?> weeks</h2>
-    <h2>Credits earned: <?php echo $course_credit ?> credits</h2>
+    <h4>Length of course: <?php echo $course_length?> weeks</h4>
+    <h4>Credits earned: <?php echo $course_credit ?> credits</h4>
 </div>
 <div class="detail instructor">
     <div class='instructor alias'>
@@ -27,11 +27,8 @@ include 'coursedetail_instructor.php'; // gets from table instructor
                     <th scope="col">class links</th>
                 </thead>
                 <tbody>
-                    <td>Tuesday</td>
-                    <td>08:00 am - 10:00 am</td>
-                    <td>
-                        <a href="#">link<a>
-                    </td>
+                    <?php include 'coursedetail_instructor_availability.php';?>
+                    
                 </tbody>
             </table>
             <div>
@@ -41,10 +38,14 @@ include 'coursedetail_instructor.php'; // gets from table instructor
     </div>
 </div>
 <div class="detail reviews">
-    <div class="reviews instructor">
-    <?php include 'coursedetail_coursereview.php'; ?>
-    </div>
-    <div class="reviews course">
-    <?php include 'coursedetail_instructorreview.php'; ?>
-    </div>
+    <?php 
+    if($_SESSION['user_type'] === 'student'){ // checks if current user is student to display review forms
+        echo "<div class='reviews instructor'>";
+        include 'coursedetail_coursereview.php';
+        echo "</div>";
+        echo "<div class='reviews course'>";
+        include 'coursedetail_instructorreview.php';
+        echo "</div>";
+    }
+    ?>
 </div>

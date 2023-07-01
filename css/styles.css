@@ -288,7 +288,7 @@ body {
 .table.container {
   top: 15px;
   width: 80%;
-  height: 90%;
+  height: fit-content;
   position: relative;
   padding: 30px;
   background-color: #bab86ced;
@@ -535,14 +535,21 @@ td {
 .course-review,.instructor-review {
   display: flex;
   justify-content: space-around;
-  align-items: center;
   flex-direction: column;
   height:100%;
   padding:0 20px;
 }
-.center{
+.course-review h3,.instructor-review h3{
+  margin:5px;
+}
+.review-content{
+  margin:5px;
+}
+.rating-container{
   position: relative;
-  left: -37%;
+}
+.review-submit{
+  margin: 5px;
 }
 .review-content{
   width: -webkit-fill-available;
@@ -550,4 +557,8 @@ td {
 .review-content input{
   width: -webkit-fill-available;
   border-radius: 5  px;
+}
+.review-submit{
+  display:flex;
+  justify-content: center;
 }

@@ -34,7 +34,7 @@ if (isset($_POST['review-instructor'])) {
 
 <form class="instructor-review" method="post" action="">
     <h3>Rate this Instructor!</h3>
-    <div class="center">
+    <div class="rating-container">
         <fieldset class="rating">
             <input type="radio" name="rating" id="star5" value="5"><label for="star5" class="full"></label>
             <input type="radio" name="rating" id="star4" value="4"><label for="star4" class="full"></label>
@@ -47,6 +47,6 @@ if (isset($_POST['review-instructor'])) {
         <input type="text" name="review-content" placeholder="review">
     </div>
     <div class="review-submit">
-    <input id="review" type="submit" value="submit" name="review-instructor">
+    <input id="reviewbtn" type="submit" value="submit" name="review-instructor">
 </div>
 </form>
