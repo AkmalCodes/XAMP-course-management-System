@@ -1,5 +1,3 @@
-<?php
-?>
 
 <head>
     <script src="js/navbar.js" async></script>
@@ -24,8 +22,14 @@
             <a href='courseschedule_instructor.php'> SCHEDULE</a>
             </li>
             ";
-        } elseif ($_SESSION['user_type'] === 'student') {
-        }
+        } 
+        if ($_SESSION['user_type'] === 'trainer') {
+            echo "
+            <li class='list'>
+            <a href='editcourse.php'> EDIT COURSE</a>
+            </li>
+            ";
+        } 
         ?>
 
         <li class="list"><a href="utils/logout.php"> LOGOUT</a></li>

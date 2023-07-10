@@ -19,7 +19,6 @@ const handleNavCloseOpen = () => {
     closenavimg.style.backgroundSize = "cover";
   }
 };
-
 const handleNavCloseOnly = () => {
   if (navBar.style.width === "200px") {
     // Close the navbar when clicking somewhere else

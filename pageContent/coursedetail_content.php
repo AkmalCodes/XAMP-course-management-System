@@ -46,6 +46,10 @@ include 'coursedetail_instructor.php'; // gets from table instructor
         echo "<div class='reviews course'>";
         include 'coursedetail_instructorreview.php';
         echo "</div>";
+    }else if($_SESSION['user_type'] === 'instructor'){
+        echo "<div>";
+        include 'coursedetail_enrolledstudents.php';
+        echo"</div>";
     }
     ?>
 </div>

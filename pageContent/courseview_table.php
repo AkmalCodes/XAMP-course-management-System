@@ -17,11 +17,13 @@ $user_type = $_SESSION['user_type'];
                 <th scope="col">Course id</th>
                 <th scope="col">Course name</th>
                 <th scope="col">Course links</th>
-                <th scope="col">Certificates</th>
+                
                 <?php
                 if ($user_type === 'student') {
-                    echo "<th scope='col'>Completion</th>
-                          <th scope='col'>Enrolled</th>
+                    echo "
+                        <th scope='col'>Certificates</th>
+                        <th scope='col'>Completion</th>
+                        <th scope='col'>Enrolled</th>
                     </tr>";
                 } else {
                     echo "</tr>";
@@ -34,6 +36,7 @@ $user_type = $_SESSION['user_type'];
                 while ($row = mysqli_fetch_array($result)) {
                     $course_id = $row['course_id'];
                     $course_name = $row['course_name'];
+                    $instructor_id = $row['instructor_id'];
 
                     if ($user_type === 'student') {
                         // Get status on enrollment for students only
@@ -66,7 +69,7 @@ $user_type = $_SESSION['user_type'];
                         $resultTemp = mysqli_stmt_get_result($stmtTemp);
                         $rowTemp = mysqli_fetch_array($resultTemp);
 
-                        if (mysqli_num_rows($resultTemp) === 1) {
+                        if (mysqli_num_rows($resultTemp) === 1 && $rowTemp['completion'] === 'complete') {
                             $completion = $rowTemp['completion'];
                         } else {
                             $completion = 'N/A';
@@ -74,15 +77,26 @@ $user_type = $_SESSION['user_type'];
 
                         mysqli_stmt_close($stmtTemp);
                     }
-
-                    echo "<tr>
+                    
+                    // display record to table
+                    echo "<tr> 
                             <th scope='row'>$course_id</th>
                             <td>$course_name</td>
                             <td><a href='coursedetail.php?course_id=$course_id'>more details</a></td>
-                            <td><a href='#'>certificate</a></td>";
+                            ";
                     if ($user_type === 'student') {
-                        echo "<td>$completion</td>
-                              <td>$enrolled</td>
+                        echo "
+                            <td>";
+                            if($completion === 'complete'){ // display redirect to certificate page if complete
+                                echo "<a href='courseview_certificate.php?course_id=$course_id&student_id=$student_id&course_name=$course_name&instructor_id=$instructor_id'>
+                                certificate</a>";
+                            }else{
+                                echo "<a href='#'>certificate</a>";
+                            }
+                        echo "
+                            </td>
+                            <td>$completion</td>
+                            <td>$enrolled</td>
                                       </tr>";
                     } else {
                         echo "</tr>";

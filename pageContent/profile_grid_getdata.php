@@ -53,7 +53,26 @@ if ($_SESSION['user_type'] === 'student') { // query if user type is student
     mysqli_stmt_bind_param($stmt, "i", $user_id);
     mysqli_stmt_execute($stmt);
 
-    $result1 = mysqli_query($con, $sql1);
+    $result1 = mysqli_stmt_get_result($stmt);
+    if ($result1) {
+        if (mysqli_num_rows($result1) > 0) {
+            while ($row = mysqli_fetch_array($result1)) {
+                $hire_date = $row['hire_date'];
+                $hire_date = fixdate($hire_date);
+                $specialty = $row['specialty'];
+            } 
+        }
+    } else {
+        echo "Error executing SQL query: " . mysqli_error($con);
+    }
+
+} else if ($_SESSION['user_type'] === 'trainer') {  // query if user type is training provider
+    $sql1 = "SELECT * FROM trainingprovider WHERE user_id = ?";
+    mysqli_stmt_prepare($stmt, $sql1);
+    mysqli_stmt_bind_param($stmt, "i", $user_id);
+    mysqli_stmt_execute($stmt);
+
+    $result1 = mysqli_stmt_get_result($stmt);
     if ($result1) {
         if (mysqli_num_rows($result1) > 0) {
             while ($row = mysqli_fetch_array($result1)) {
