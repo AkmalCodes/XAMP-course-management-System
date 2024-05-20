@@ -1,26 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto&display=swap");
+
+/* Setting default properties for the whole website */
 * {
-  margin: 0;
-  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: #061556;
+  box-sizing: border-box;
 }
 
+/* Setting default properties for html and body tag*/
 html,
 body {
-  font-family: rubik;
   position: relative;
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #eeeedf;
 }
 
-#pagebckground {
-  position: absolute;
+#loginbody,
+#registerbody {
+  background-image: url("../images/page-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+body {
+  background-image: url(../images/body-background.jpg);
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-position: center center;
+}
+
+.always-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  text-align: justify;
+}
+
+/* Setting the default header, footer and navbar for every page */
+header {
+  padding: 20px;
+  background-color: #000000d8;
+}
+
+header img {
+  margin: 20px 30px;
+  min-width: 30%;
+}
+
+footer {
+  display: block;
+  background-color: #061556;
+  padding: 20px;
+  position: sticky;
+  top: 100%;
+}
+
+footer p {
+  color: #00ffff;
+  text-align: center;
+}
+
+.navbar {
+  background-color: #061556ee;
+  font-size: 150%;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar a {
+  color: #00ffff;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  text-align: center;
+}
+
+.navbar a:hover {
+  color: #061556;
+}
+
+.navbar li:hover {
+  background-color: #ffffffee;
+  transition: 0.3s ease-in-out;
+}
+
+/* Setting the default properties for main containers in every page */
+main {
+  padding: 20px 20px;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.main-content,
+.side-content {
+  padding: 20px 20px;
+  background-color: #061556ee;
+  box-shadow: 0 0 10px 0 #00ffff80;
+}
+
+.main-content {
+  width: 65%;
   height: 100%;
-  width: 100%;
+  min-width: min-content;
+  overflow: hidden;
+  /* display: flex;
+  justify-content: flex-start; */
+  margin-left: 10px;
 }
 
-.grid-container {
+/* .grid-container {
   height: 100%;
   width: 100%;
   justify-content: center;
@@ -32,17 +138,95 @@ body {
   height: inherit;
   align-items: start;
   display: flex;
+} */
+
+/* Everything side content related, the user's main navigation */
+.side-content {
+  width: 25%;
+  min-height: min-content;
+  min-width: min-content;
+  margin-right: 10px;
 }
 
-#nav {
+.side-content ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+.side-content ul .list {
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  background-color: #00ffff36;
+  color: #00ffff;
+}
+
+.side-content ul .list:hover {
+  padding: 15px 30px;
+  transition: 0.4s ease-in-out;
+  background-color: #ffffff;
+  color: #061556;
+}
+
+.side-content a::after {
+  text-decoration: none;
+}
+
+#li-img {
+  flex-direction: column;
   position: relative;
-  background-color: #dfdfc1;
+  margin: 15px 0;
+  padding: 15px 0;
+  border: none;
+  box-shadow: none;
+}
+
+#li-img h3 {
+  color: #00ffff;
+  font-weight: lighter;
+}
+
+.navbuttons {
+  text-decoration: none;
+  font-size: 1.5em;
+  transition: ease-in-out;
+}
+
+#navimg {
+  min-width: 100px;
+  width: 20%;
+  margin: 0px 30px 30px 30px;
+  transition: ease-in-out 0.4s;
+  overflow: hidden;
+}
+
+/* Setting the main content's table */
+.table.container {
+  position: relative;
+  padding: 30px;
+  background-color: #ffffff85;
+  border-radius: 30px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+}
+.table.container h1 {
+  color: #061556;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.table.container th,
+td {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* #nav {
+  position: relative;
+  background-color: #bab86ced;
   margin-right: 20px;
   transform: translateX(0px);
   height: 100%;
-  width: 200px;
-  max-width: 200px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Add box shadow to the right border */
+  width: 0px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   transition: width 0.3s ease;
@@ -57,10 +241,11 @@ body {
   transition: 0.3s ease;
   position: relative;
   margin: 1px 6px;
-  width: 15px; /* Adjust the width and height as needed */
+  right: -30px;
+  top: 10px;
+  width: 15px;
   height: 15px;
   border: none;
-  background: url("images/left-arrow.png");
   cursor: pointer;
   z-index: 1;
   overflow: visible;
@@ -78,20 +263,16 @@ body {
   overflow: hidden;
 }
 
-#nav ul li {
+#nav ul .list {
   padding: 15px 20px;
   transition: 0.4s ease-in-out;
   border-radius: 15px;
-  border: 3px solid #dfdfc1d2;
+  border: 3px solid #bab76c00;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 }
 
-#nav ul li:hover {
+#nav ul .list:hover {
   padding: 15px 30px;
-}
-
-#nav ul li:hover a {
-  color: #5f5f49;
 }
 
 #nav #li-img {
@@ -135,7 +316,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
+} */
 
 /* below is the styles for profile page */
 #current-picture {
@@ -172,17 +353,17 @@ body {
 }
 
 .grid {
-  margin-right: 20px;
-  top: 15px;
-  max-width: 800px;
+  font-size: 22px;
+  width: 100%;
   height: 90%;
   display: grid;
   position: relative;
   grid-template-columns: repeat(14, 1fr);
   grid-template-rows: auto;
   padding: 30px 10px;
-  background-color: #dfdfc1;
+  background-color: #ffffff85;
   border-radius: 30px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
   grid-template-areas:
     "details1 details1"
     "username1 username2"
@@ -194,7 +375,6 @@ body {
     "dyanmic1 dyanmic1"
     "dyanmic2 dyanmic2"
     "dyanmic3 dyanmic3";
-  overflow: display;
 }
 #details1 {
   display: flex;
@@ -279,35 +459,18 @@ body {
 }
 /* below is styles for coursedetail.php */
 
-.table.container {
-  top: 15px;
-  width: 80%;
-  height: 90%;
-  position: relative;
-  padding: 30px;
-  background-color: #dfdfc1;
-  border-radius: 30px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-}
-.table.container h1 {
-  text-align: left;
-  margin-bottom: 20px;
-  border-bottom: black 2px solid;
-}
-.table.container th,
-td {
-  text-align: center;
-  margin-bottom: 5px;
-}
-
 .courseviewtable {
   width: -webkit-fill-available;
+  background-color: #ffffff;
   position: relative;
   border: 1px solid rgb(36, 36, 32);
   border-radius: 5px;
 }
 .detail {
   margin: 30px 0;
+}
+.detail.description {
+  text-align: justify;
 }
 .detail.instructor {
   width: -webkit-fill-available;
@@ -319,7 +482,7 @@ td {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 .instructor.alias {
-  float:left;
+  float: left;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -328,7 +491,7 @@ td {
 
 .instructor.alias h3 {
   position: relative;
-  bottom:5px;
+  bottom: 5px;
   text-align: center;
 }
 
@@ -338,13 +501,13 @@ td {
   margin: 30px;
 }
 
-.instructor.available  {
+.instructor.available {
   margin-left: 10px;
   width: -webkit-fill-available;
   height: 70%;
   position: relative;
   padding: 30px;
-  background-color: #dfdfc1;
+  background-color: #061556;
   border-radius: 30px;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
 }
@@ -371,19 +534,235 @@ td {
   display: flex;
   justify-content: center;
 }
-#enroll{
+#enroll {
   position: relative;
-  bottom:3px;
+  bottom: 3px;
   border: none;
-  margin:0 20px;
-  padding:5px;
+  margin: 0 20px;
+  padding: 5px;
   border-radius: 5px;
   cursor: pointer;
   transition: ease-in-out 0.3s;
 }
-#enroll:hover{
+#enroll:hover {
   background-color: rgb(128, 233, 128);
 }
-.instructor.tablewrapper{
+.instructor.tablewrapper {
   width: -webkit-fill-available;
+}
+
+.detail.reviews {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.reviews.instructor,
+.reviews.course {
+  background-color: white;
+  border-radius: 20px;
+  margin: 10px;
+  width: -webkit-fill-available;
+  height: 100%;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* below is style for login page */
+
+/* below is style for login & register page */
+
+.login,
+.register {
+  height: 100%;
+  width: 100%;
+  background-color: #00000065;
+}
+
+.login-container,
+.register-container {
+  flex-direction: column;
+}
+
+.login-container img,
+.register-container img {
+  max-width: 75%;
+}
+
+.login-container form,
+.register-container form {
+  width: 50%;
+  height: 50%;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 20px;
+}
+
+.register-container form {
+  width: 80%;
+}
+
+.login-container input,
+.register-container input {
+  padding: 5px 5px;
+  width: 100%;
+  border-radius: 5px;
+}
+.login-container h2,
+.register-container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.register-container h4 {
+  margin: 5px 0px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.username,
+.password,
+.email,
+.fname,
+.lname,
+.dob,
+.address,
+.phonenum,
+.usertype {
+  margin: 0px 20px;
+  width: 80%;
+}
+
+.username,
+.fname {
+  margin: 0px;
+  margin-right: 15px;
+}
+
+.password,
+.lname {
+  margin: 0px;
+}
+
+#userpass,
+#fnamelname {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.username input,
+.password input {
+  margin: 0 5px;
+  position: relative;
+  top: -3px;
+  border: 0.25px solid #061556;
+}
+
+#username-login,
+#password-login {
+  width: 100%;
+}
+
+#username-login input,
+#password-login input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+#login,
+#register {
+  font-weight: bold;
+  border-radius: 1em;
+  border: 0.2px solid #061556;
+  margin: 20px;
+  width: 40%;
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+#login:hover,
+#register:hover {
+  background-color: #00ffff;
+}
+
+/* below is stylees for rating */
+.rating1 {
+  border: none;
+  float: left;
+}
+
+.rating1 > input {
+  display: none;
+}
+
+.rating1 > label:before {
+  content: "\f005";
+  font-family: FontAwesome;
+  margin: 5px;
+  font-size: 1.5rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.rating1 > label {
+  color: #ddd;
+  float: right;
+  cursor: pointer;
+}
+
+.rating1 > input:checked ~ label,
+.rating1:not(:checked) > label:hover,  /* not checked selects elements with with no checked (only works with select/radio)*/
+.rating1:not(:checked) > label:hover ~ label {
+  color: #2ce679;
+  transition: 0.3s ease-in-out;
+  transform: rotateX("-90deg");
+}
+
+.rating1 > input:checked + label:hover,
+.rating1 > input:checked ~ label:hover,
+.rating1 > label:hover ~ input:checked ~ label,
+.rating1 > input:checked ~ label:hover ~ label {
+  color: #2ddc76;
+}
+
+
+
+
+.course-review,
+.instructor-review {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 20px;
+}
+.course-review h3,
+.instructor-review h3 {
+  margin: 5px;
+}
+.review-content {
+  margin: 5px;
+}
+.rating-container {
+  position: relative;
+}
+.review-submit {
+  margin: 5px;
+}
+.review-content {
+  width: -webkit-fill-available;
+}
+.review-content input {
+  width: -webkit-fill-available;
+  border-radius: 5 px;
+}
+.review-submit {
+  display: flex;
+  justify-content: center;
 }

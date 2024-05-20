@@ -1,23 +1,33 @@
-<?php 
-    include 'config/session_start.php';
- ?>
-<head>
-<script src="js/navbar.js" async></script>
-</head>
-
-<div id="nav" class="navbar">
-    <div id="closenavdiv">
-        <button id="closenav" cursor="pointer"><img id="closenavimg" src='images/left-arrow.png'></button>
-    </div>
-    <ul id="list"> 
-        <li class="" id="li-img" >
-            <img id="navimg" src="images/profile.png" >
-            <h3><a href="profilepage.php"><?php echo $_SESSION['user_name'] ?></a></h3>
+<aside id="nav" class="side-content">
+    <ul>
+        <li class="always-centered" id="li-img">
+            <img id="navimg" src="images/profile.png">
+            <h3>Hello, <?php echo $_SESSION['user_name'] ?>!</h3>
         </li>
-        <li><a href="#">HOME</a></li>
-        <li><a href="courseview.php"> COURSES</a></li>
-        <li><a href="profilepage.php"> PROFILE</a></li>
-        <li><a href="#"> SCHEDULE</a></li>
-        <li><a href="utils/logout.php"> LOGOUT</a></li>
+        <a class="navbuttons" href="courseview.php">
+            <li class="list">ALL COURSES</li>
+        </a>
+        <?php if ($_SESSION['user_type'] === 'instructor') {
+            echo "
+            <a class='navbuttons' href='courseschedule_instructor.php'>
+            <li class='list'>MY SCHEDULE</li>
+            </a>
+            ";
+        } 
+        if ($_SESSION['user_type'] === 'trainer') {
+            echo "
+            <a class='navbuttons' href='editcourse.php'>
+            <li class='list'>COURSE MANAGER</li>
+            </a>
+            ";
+        } 
+        ?>
+
+        <a class="navbuttons" href="profilepage.php">
+            <li class="list">MY PROFILE</li>
+        </a>
+        <a class="navbuttons" href="profile_update.php">
+            <li class="list">CHANGE PASSWORD</li>
+        </a>
     </ul>
-</div>
+</aside>

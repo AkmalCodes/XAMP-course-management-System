@@ -1,25 +1,32 @@
 <?php
-include 'config/connect.php';
+    include 'utils/connect.php';
+    include 'utils/session_start.php';
+    include 'utils/sessionnull.php';
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Course view</title>
+    <title>Course Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/eskills_logo_only.svg" />
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/profile.js" async></script>
 </head>
 
 <body>
-    <div id="profile-container">
+    <?php include 'pageContent/header.html'; ?>
+    <main>
         <?php include 'pageContent/nav.php'; ?>
-        <div class="grid-container">
+        <section class="main-content">
             <div class="table container">
-            <?php include 'pageContent/coursedetail_content.php'; ?>
+                <?php include 'pageContent/coursedetail_content.php'; ?>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
+    <?php include 'pageContent/footer.html'; ?>
 </body>
 
 </html>

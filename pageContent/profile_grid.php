@@ -1,11 +1,10 @@
 <?php
-include 'config/connect.php';
+include 'utils/connect.php';
 include 'pageContent/profile_grid_getdata.php';
 ?>
 
 <div id="details1" class="details">
     <img id="current-picture" src="images/profile.png" alt="profile-pict">
-    <button id="change-pict">Change Picture</button>
 </div>
 <div id="username-1" class="details">
     <h5>Username: </h5>
@@ -49,5 +48,7 @@ if ($user_type === "student") {
 include 'profile_grid_student.php';
 } else if ($user_type === "instructor") { 
 include 'profile_grid_instructor.php';
+} else if ($user_type === "trainer") { 
+include 'profile_grid_tp.php';
 }
 ?>
