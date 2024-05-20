@@ -27,8 +27,8 @@ controls.
 
 # Features
 
-## STUDENTS
+### STUDENTS
 
-## INSTRUCTORS
+### INSTRUCTORS
 
-## TRAINERS
+### TRAINERS
