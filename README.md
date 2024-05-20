@@ -15,3 +15,20 @@ learning experience.
 5. To generate certificates of completion for students who successfully finish a course.
 6. To ensure data security and privacy by implementing proper authentication and access
 controls.
+
+# Technologies Used:
+
+1. HTML
+2. CSS
+3. Javascript
+4. PHP
+5. MySQL
+6. Xampp apache server
+
+# Features
+
+## STUDENTS
+
+## INSTRUCTORS
+
+## TRAINERS
