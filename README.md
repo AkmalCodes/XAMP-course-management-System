@@ -4,7 +4,7 @@ This project is an assessment under the TIS2151 Web Application Development subj
 for students studying in the Faculty of Computing and Informatics (FCI) for Trimester 2,
 2022/2023 (term 2220) at Multimedia University (MMU), Cyberjaya.
 
-#Gaols of this system are as follows:
+# Goals of this system are as follows:
 1. To provide a free community-based online learning service that offers up-to-date
 courses to learn various topics.
 2. To provide a user-friendly interface for students to browse and enroll in courses.
