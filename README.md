@@ -1,8 +1,8 @@
 # PHP-eskills-course-managements-system
 
-This project is an assessment under the TIS2151 Web Application Development subject
-for students studying in the Faculty of Computing and Informatics (FCI) for Trimester 2,
-2022/2023 (term 2220) at Multimedia University (MMU), Cyberjaya.
+This project is an assessment for myself to create a simple course management system, to allow
+instructors trainers and students manage their courses by creating, deleteing, enrolling, etc...
+everything course related.
 
 # Goals of this system are as follows:
 1. To provide a free community-based online learning service that offers up-to-date
